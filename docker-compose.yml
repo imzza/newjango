@@ -15,7 +15,7 @@ services:
       - ./:/app
       - ./docker/server-entrypoint.sh:/docker/django/server-entrypoint.sh
     ports:
-      - "9999:8000"
+      - "8000:8000"
     networks:
       - django
     depends_on:
