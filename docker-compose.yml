@@ -1,0 +1,53 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/django.Dockerfile
+    image: ${CI_REGISTRY_IMAGE:-app}/${IMAGE:-web}:${SANITIZED_BRANCH:-latest}
+    container_name: app
+    env_file:
+      - .env
+    environment:
+      - LOCAL_SERVER=${LOCAL_SERVER:-true}
+    volumes:
+      - ./:/app
+      - ./docker/server-entrypoint.sh:/docker/django/server-entrypoint.sh
+    ports:
+      - "9999:8000"
+    networks:
+      - django
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:14.1-alpine
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "postgres" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=practice
+    logging:
+          options:
+            max-size: 10m
+            max-file: "3"
+    ports:
+      - '5432:5432'
+
+    networks:
+      - django
+
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
+
+networks:
+  django:
+
+volumes:
+  postgres:
+    driver: local
