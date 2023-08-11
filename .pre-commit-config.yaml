@@ -39,3 +39,65 @@ repos:
         language: python
         types: [python]
         args: ["--line-length=99"]
+
+
+# exclude: 'docs|node_modules|.git|.tox'
+# default_stages: [commit]
+# fail_fast: true
+# files: '.py'
+
+# repos:
+# -   repo: https://github.com/humitos/mirrors-autoflake
+#     rev: v1.3
+#     hooks:
+#     - id: autoflake
+#       name: Remove unused variables and imports
+#       entry: bash -c 'autoflake "$@"; git add -u' --
+#       language: python
+#       args:
+#         [
+#           "--in-place",
+#           "--remove-all-unused-imports",
+#           "--remove-unused-variables",
+#           "--expand-star-imports",
+#           "--ignore-init-module-imports",
+#         ]
+#       files: \.py$
+# -   repo: https://github.com/asottile/seed-isort-config
+#     rev: v2.2.0
+#     hooks:
+#     - id: seed-isort-config
+# -   repo: https://github.com/pre-commit/mirrors-isort
+#     rev: v5.10.1
+#     hooks:
+#     - id: isort
+#       additional_dependencies:
+#         - toml
+#       name: Sorting import statements
+#       entry: bash -c 'isort "$@"; git add -u' --
+#       language: python
+#       args: [
+#         "--filter-files",
+#         "--profile=black",
+#         "--py=3.9",
+#         "--multi-line=3",
+#         "--force-grid-wrap=0",
+#         "--trailing-comma",
+#         "--use-parentheses"
+#       ]
+#       files: \.py$
+# -   repo: https://github.com/ambv/black
+#     rev: 23.7.0
+#     hooks:
+#     - id: black
+#       args: [--line-length, '99']
+# -   repo: https://github.com/pre-commit/pre-commit-hooks
+#     rev: v4.4.0
+#     hooks:
+#     -   id: trailing-whitespace
+#     -   id: check-merge-conflict
+#     -   id: check-yaml
+#     -   id: detect-private-key
+#     -   id: end-of-file-fixer
+#     -   id: no-commit-to-branch
+#         args: [--branch, main]
