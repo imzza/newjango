@@ -7,7 +7,7 @@ djangorestframework-simplejwt==5.2.2
 psycopg2-binary==2.9.7
 
 # Dev Requirements
-autoflake==2.1.1
-isort==5.12.0
-black==23.3.0
-pre-commit==3.2.2
+#autoflake==2.1.1
+#isort==5.12.0
+#black==23.3.0
+#pre-commit==3.2.2
