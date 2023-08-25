@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "newjango"
+version = "0.1.0"
+description = ""
+authors = ["IRFAN ULLAH <irfanullah73@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.4"
+django-cors-headers = "3.14.0"
+django-environ = "0.10.0"
+django-extensions = "3.2.1"
+djangorestframework = "3.14.0"
+djangorestframework-simplejwt = "5.2.2"
+psycopg2-binary = "2.9.7"
+
+
+
+[tool.poetry.group.dev.dependencies]
+black = "22.12.0"
+autoflake = "2.0.0"
+flake8 = "6.0.0"
+isort = "5.11.4"
+pre-commit = "3.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

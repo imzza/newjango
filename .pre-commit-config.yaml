@@ -41,14 +41,14 @@ repos:
         args: ["--line-length=99"]
 
 
-# exclude: 'docs|node_modules|.git|.tox'
+# exclude: 'docs|node_modules|.git|.tox|.vscode|.idea|__pycache__'
 # default_stages: [commit]
 # fail_fast: true
 # files: '.py'
 
 # repos:
-# -   repo: https://github.com/humitos/mirrors-autoflake
-#     rev: v1.3
+# -   repo: https://github.com/PyCQA/autoflake
+#     rev: v2.0.0
 #     hooks:
 #     - id: autoflake
 #       name: Remove unused variables and imports
@@ -67,8 +67,8 @@ repos:
 #     rev: v2.2.0
 #     hooks:
 #     - id: seed-isort-config
-# -   repo: https://github.com/pre-commit/mirrors-isort
-#     rev: v5.10.1
+# -   repo: https://github.com/PyCQA/isort
+#     rev: 5.11.4
 #     hooks:
 #     - id: isort
 #       additional_dependencies:
@@ -87,7 +87,7 @@ repos:
 #       ]
 #       files: \.py$
 # -   repo: https://github.com/ambv/black
-#     rev: 23.7.0
+#     rev: 22.12.0
 #     hooks:
 #     - id: black
 #       args: [--line-length, '99']
